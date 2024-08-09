@@ -1,4 +1,7 @@
 plotly == 5.13.0
-matplotlib == 3.7.1
 numpy == 1.26.4
 streamlit_keplergl
+streamlit == 1.20.0
+matplotlib == 3.7.1
+numerize == 0.12
+pillow == 7.1.0
