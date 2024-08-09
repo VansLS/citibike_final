@@ -4,4 +4,4 @@ streamlit_keplergl
 streamlit == 1.20.0
 matplotlib == 3.7.1
 numerize == 0.12
-pillow == 7.1.0
+pillow == 9.2.0
