@@ -21,7 +21,7 @@ st.title ('Citi Bike Strategy Dashboard')
 ############ Define the sidebar ############
 st.sidebar.title("Aspect Selector")
 page = st.sidebar.selectbox('Select an aspect of the analysis',
-  ["Intro page","Weather conditions and bike usage",
+  ["Introduction","Weather conditions and bike usage",
    "Most popular stations",
     "Interactive map with aggregated bike trips", "Summary and recommendations"])
 
@@ -35,11 +35,11 @@ df_linechart = pd.read_csv('linechartdata.csv')
 
 ############ DEFINE THE PAGES ############
 
-if page == "Intro page":
+if page == "Introduction":
     st.markdown("#### This dashboard aims at providing helpful insights on the distribution problems Citi Bike currently faces.")
     st.markdown("Since the Covid–19 pandemic, New York residents have found even more merit in bike sharing, creating higher demand. This has led to distribution problems—such as fewer bikes at popular bike stations or stations full of docked bikes, making it difficult to return a hired bike—and customer complaints. This analysis will look at the potential reasons behind this. The dashboard is separated into 4 sections:")
-    st.markdown("- Most popular stations")
     st.markdown("- Weather conditions and bike usage")
+    st.markdown("- Most popular stations")
     st.markdown("- Interactive map with aggregated bike trips")
     st.markdown("- Summary and recommendations")
     st.markdown("The dropdown menu on the left 'Aspect Selector' will take you to the different aspects of the analysis our team looked at.")
@@ -115,7 +115,7 @@ elif page == 'Most popular stations':
     fig = go.Figure(go.Bar(x = top20filtered['start_station_name'], y = top20filtered['value'], marker={'color': top20filtered['value'],'colorscale': 'Blues'}))
 
     fig.update_layout(
-    title = 'Top 20 bike stations in New York filtered by the season. You can change the season selected using the sidebar.',
+    title = 'Top 20 bike stations in New York filtered by the season. <br> Filtering out summer season from the sidebar reduces the bike trips by 54%.',
     xaxis_title = 'Start stations',
     yaxis_title ='Sum of trips',
     width = 900, height = 600)
@@ -156,7 +156,8 @@ else:
     bikes = Image.open("citibike2.jpg")  #source: https://www.flickr.com/photos/nycstreets/20296919256
     st.image(bikes)
     st.markdown("### Our analysis has shown that Citi Bike should focus on the following objectives moving forward:")
-    st.markdown('From May - October, add more bikes to the most popular stations and routes:')
+    st.markdown('From May - October, add more bikes to the most popular stations and routes. This is due to the fact that demand surges during the warmer months, and the top 3 stations also coincide with some of the most popular routes.')
+    st.markdown("###### Most popular stations and routes:")
     st.markdown('''
     - W 21 St & 6 Ave 
     - West St & Chambers St 
@@ -164,6 +165,10 @@ else:
     - 1 Ave & E 62 St and 1 Ave & E 68 St
     - Central Park area
     ''')
-    st.markdown('This is due to the fact that demand surges during the warmer months, and the top 3 stations also coincide with some of the most popular routes.')
+    st.markdown("While more bikes should be added to the popular stations during the warmer months, they should be reduced by 40-50% during the colder months to reduce logistics costs.")
     st.markdown('To further ease the demand within the vicinity of tourist destinations, more bike stations could also be introduced within the area.')
-    st.markdown("While more bikes should be added to the popular stations during the warmer months, they should be reduced during the colder months to reduce logistics costs.")
+    st.markdown("###### Next steps to explore")
+    st.markdown('''
+    - To ensure bikes are always stocked at most popular stations, conduct a historical data analysis to predict demand patterns, or offer credits to users who return bikes to high-demand or low-stock stations. 
+    - To determine how many more stations to add in popular areas, use predictive models to forecast future demand based on current trends. Temporary pop-up stations or pilot expansion programs could then be implemented to measure the success of the predictive model. 
+    ''')
