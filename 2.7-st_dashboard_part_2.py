@@ -167,8 +167,17 @@ else:
     ''')
     st.markdown("While more bikes should be added to the popular stations during the warmer months, they should be reduced by 40-50% during the colder months to reduce logistics costs.")
     st.markdown('To further ease the demand within the vicinity of tourist destinations, more bike stations could also be introduced within the area.')
-    st.markdown("###### Next steps to explore")
+    
+    st.markdown("### Next steps")
     st.markdown('''
     - To ensure bikes are always stocked at most popular stations, conduct a historical data analysis to predict demand patterns, or offer credits to users who return bikes to high-demand or low-stock stations. 
     - To determine how many more stations to add in popular areas, use predictive models to forecast future demand based on current trends. Temporary pop-up stations or pilot expansion programs could then be implemented to measure the success of the predictive model. 
     ''')
+
+    st.markdown("### Limitations")
+    st.markdown('''
+    - Analysis is based on a sample which may limit findings or introduce sample bias. 
+    - The analysis is based on a year's worth of data, which may not fully capture trends over longer periods.
+    - The analysis shows strong seasonal trends, but it does not account for unexpected weather events or anomalies that could impact bike usage outside of typical seasonal patterns.
+    - The dashboard mainly focuses on temperature and station popularity. Other factors such as socioeconomic are not taken into consideration. 
+                ''')
